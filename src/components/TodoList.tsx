@@ -66,7 +66,7 @@ const Header = () => {
   return (
     <div className="mb-6">
       <h1 className="text-xl font-medium text-white">Good morning Saad! ☀️</h1>
-      <p className="text-zinc-400">Let's see what we've got to do today.</p>
+      <p className="text-zinc-400">Let{"'"}s see what we{"'"}ve got to do today.</p>
     </div>
   );
 };
@@ -167,7 +167,7 @@ const Todos = ({ todos, handleCheck, removeElement }: any) => {
   return (
     <div className="w-full space-y-3">
       <AnimatePresence>
-        {todos.map((t) => (
+        {todos.map((t:any) => (
           <Todo
             handleCheck={handleCheck}
             removeElement={removeElement}
@@ -218,7 +218,7 @@ const Todo = ({
             duration: 0.125,
           }
         );
-
+  
         await animate(
           scope.current,
           {
@@ -231,10 +231,10 @@ const Todo = ({
         );
         safeToRemove();
       };
-
+  
       exitAnimation();
     }
-  }, [isPresent]);
+  }, [isPresent, animate, checked, safeToRemove, scope]);
 
   return (
     <motion.div
